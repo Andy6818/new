@@ -1,0 +1,20 @@
+{
+  "name": "newstyles",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+
+  },""
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongodb": "^6.20.0",
+    "mongoose": "^8.18.2",
+    "nodemon": "^3.1.10",
+    "path": "^0.12.7"
+  }
+}
