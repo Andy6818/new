@@ -13,7 +13,7 @@ let isCartShowing = false;
 const products = [
   {
     id: 1,
-    name: "car holder",
+    name: "car holder item:001",
     image: "image/2.jpg",
     price: 21,
     description: "wholesale price $3.5",

@@ -65,9 +65,9 @@ body {
 }
 
 #cart-btn {
-  position: absolute;
-  top: 0;
-  right: 0;
+  position: fixed;
+  top: 2px;
+  right: 2px;
 }
 
 .add-to-cart-btn {
