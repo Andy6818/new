@@ -24,6 +24,8 @@ body {
 }
 
 .title {
+  position:relative;
+  float:center;
   color: var(--light-grey);
   flex-wrap: wrap;
   text-align: center;
@@ -155,12 +157,12 @@ p.letter {
 }
 
 #header {
-  position:fixed;
+  position:relative;
   width:250px;
-  height:250px;
+  height:150px;
   margin-right:65px;
   top:45px;
-}
+
 
 #author {
   position:relative;
@@ -172,7 +174,7 @@ p.letter {
 }
 
 .author{
-  position:relative;
+
   color:white;
   top:25px;
   left:5px;
