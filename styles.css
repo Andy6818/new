@@ -161,7 +161,7 @@ p.letter {
   width:250px;
   height:150px;
   margin-right:65px;
-  top:45px;
+  top:45px;}
 
 
 #author {
@@ -187,10 +187,12 @@ p.letter {
 }
 
 label,input {
-
-  display:block;
-
-  text-align: left;
+display: block;
+flex-direction: column;
+text-align: center;
+justify-self: center;
+ 
+  
   
  
 }  
@@ -201,6 +203,9 @@ input {
 }
 
 #form-element {
+  display:block;
+  flex-wrap: wrap;
+  flex-direction: column;
   justify-items: center;
   background-color: #f3e2ca;
 }
