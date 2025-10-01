@@ -8,7 +8,13 @@ const cartSubTotal = document.getElementById("subtotal");
 const cartTaxes = document.getElementById("taxes");
 const cartTotal = document.getElementById("total");
 const showHideCartSpan = document.getElementById("show-hide-cart");
+const checkoutform = document.querySelector(".checkout-form")
+
 let isCartShowing = false;
+
+
+   
+
 
 const products = [
   {
@@ -17,6 +23,7 @@ const products = [
     image: "image/2.jpg",
     price: 21,
     description: "wholesale price $3.5",
+
   },
   {
     id: 2,
@@ -24,6 +31,7 @@ const products = [
     image: "image/3.jpg",
     price: 10.5,
    description: "wholesale price $1.75",
+  
   },
   {
     id: 3,
@@ -31,6 +39,7 @@ const products = [
     image: "image/05.jpg",
     price: 13.5,
    description: "wholesale price $2.25",
+ 
   },
   {
     id: 4,
@@ -38,6 +47,7 @@ const products = [
     image: "image/008.jpg",
     price: 15,
     description: "wholesale price $2.5",
+  
   },
   {
     id: 5,
@@ -46,12 +56,14 @@ const products = [
     price: 22.5,
     description: "wholesale price $3.75",
   },
+
   {
     id: 6,
     name: "usb cable for samsung/iphone item:006",
     image: "image/38.jpg",
     price: 13.5,
     description: "wholesale price $2.25",
+
   },
   {
     id: 7,
@@ -59,13 +71,16 @@ const products = [
     image: "image/92.jpg",
     price: 39,
     description: "wholesale price $6.5",
+  
   },
+
   {
     id: 8,
     name: "2-in-1 wall charger item:009",
     image: "image/101.jpg",
     price: 18,
    description: "wholesale price $3",
+
   },
   {
     id: 9,
@@ -73,6 +88,7 @@ const products = [
     image: "image/102.jpg",
     price: 18,
    description: "wholesale price $3.00",
+
   },
   {
     id: 10,
@@ -80,6 +96,7 @@ const products = [
     image: "image/105.jpg",
     price: 27,
     description: "wholesale price $4.50",
+
   },
   {
     id: 11,
@@ -87,6 +104,7 @@ const products = [
     image: "image/106.jpg",
     price: 18,
     description: "wholesale price $3",
+
   },
   {
     id: 12,
@@ -102,6 +120,7 @@ const products = [
     image: "image/122.jpg",
     price: 16.5,
    description: "wholesale price $2.75",
+
   },
 
   {
@@ -110,6 +129,7 @@ const products = [
     image: "image/123.jpg",
     price: 9,
    description: "wholesale price $1.50",
+
   },
 
   {
@@ -118,6 +138,7 @@ const products = [
     image: "image/125.jpg",
     price: 10.5,
    description: "wholesale price $1.75",
+
   },
 
   {
@@ -126,6 +147,7 @@ const products = [
     image: "image/126.jpg",
     price: 10.50,
    description: "wholesale price $1.75",
+
   },
 
   {
@@ -142,6 +164,7 @@ const products = [
     image: "image/145.jpg",
     price: 16.5,
    description: "wholesale price $2.75",
+
   },
 
   {
@@ -150,6 +173,7 @@ const products = [
     image: "image/151.jpg",
     price: 12.99,
    description: "wholesale price $1.75",
+  
   },
 
   {
@@ -158,6 +182,7 @@ const products = [
     image: "image/305.jpg",
     price: 12.99,
   description: "wholesale price $1.75",
+
   },
 
   {
@@ -166,6 +191,7 @@ const products = [
     image: "image/404.jpg",
     price: 12.99,
    description: "wholesale price $1.75",
+
   },
 
   {
@@ -174,6 +200,7 @@ const products = [
     image: "image/421.jpg",
     price: 12.99,
    description: "wholesale price $1.75",
+
   },
 
   {
@@ -182,6 +209,7 @@ const products = [
     image: "image/422.jpg",
     price: 12.99,
    description: "wholesale price $1.75",
+ 
   },
 
   {
@@ -190,6 +218,7 @@ const products = [
     image: "image/436.jpg",
     price: 12.99,
    description: "wholesale price $1.75",
+ 
   },
 
   {
@@ -198,6 +227,7 @@ const products = [
     image: "image/505.jpg",
     price: 12.99,
    description: "Cupcake",
+
   },
 
   {
@@ -206,6 +236,7 @@ const products = [
     image: "image/524.jpg",
     price: 12.99,
    description: "Cupcake",
+
   },
 
   {
@@ -214,6 +245,7 @@ const products = [
     image: "image/538.jpg",
     price: 12.99,
    description: "Cupcake",
+
   },
 
   {
@@ -222,6 +254,7 @@ const products = [
     image: "image/551.jpg",
     price: 12.99,
    description: "Cupcake",
+
   },
 
   {
@@ -230,6 +263,7 @@ const products = [
     image: "image/607.jpg",
     price: 12.99,
    description: "Cupcake",
+
   },
 
   {
@@ -238,17 +272,24 @@ const products = [
     image: "image/608.jpg",
     price: 12.99,
    description: "Cupcake",
+
   },
+
+ 
 ];
 
+
+
 products.forEach(
-  ({ name, id, image,price, description}) => {
+  ({ name, id, image,price, description,}) => {
     dessertCards.innerHTML += `
       <div class="dessert-card">
-        <h2>${name}</h2>
+        <label for="name"><h2 name="name">${name}</h2></label>
         <img class="picture" src="${image}">
-        <p class="dessert-price">$${price} (6 pack)</p>
+        <label for="price"><p class="dessert-price"  name="price">$${price} (6 pack)</p></label>
         <p class="product-category">description: ${description}</p>
+       
+        
         <button 
           id="${id}" 
           class="btn add-to-cart-btn">Add to cart
@@ -257,6 +298,7 @@ products.forEach(
     `;
   }
 );
+
 
 class ShoppingCart {
   constructor() {
@@ -267,7 +309,7 @@ class ShoppingCart {
 
   addItem(id, products) {
     const product = products.find((item) => item.id === id);
-    const { name, image, price } = product;
+    const { name, image, price,} = product;
     this.items.push(product);
 
     const totalCountPerProduct = {};
@@ -281,15 +323,16 @@ class ShoppingCart {
     currentProductCount > 1 
       ? currentProductCountSpan.textContent = `${currentProductCount}x`
       : productsContainer.innerHTML += `
-      <div id="dessert${id}" class="product">
-        <p class="letter">
-          <span class="product-count" id="product-count-for-id${id}"></span>${name}
+    
+      <div name="items" id="dessert${id}" class="product">  
+<p class="letter">
+          <span  class="product-count" name="id" id="product-count-for-id${id}"></span>${name}
         </p>
         <img  width=45px height=55px src="${image}">
-        <p>$${price} (6 pack)</p>
+        <p name="price">$${price} (6 pack)</p>
       </div>
-      `;
-  }
+      `; }
+  
 
   getCounts() {
     return this.items.length;
@@ -352,3 +395,5 @@ cartBtn.addEventListener("click", () => {
 
 
 clearCartBtn.addEventListener("click", cart.clearCart.bind(cart));
+
+

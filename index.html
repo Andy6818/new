@@ -8,35 +8,64 @@
 </head>
 
    <body> 
-    <header>
+    <header> 
+      <div id="header">
+     <p class="author" ><img src="image/6818.jpg" id="author"><span id="span-letter">Author: Andy Chen
+       <br>Date: 09/30/2025 <br>Established:2025</span></p>
+    </div>
+
+    </header>
       <h1 class="title">welcome to wholesales phone accessories</h1>
       <p class="title"style="color:white">please call salesrepresentative Tel: <a href="tel:+17187376818"><span class="tel">718-737-6818</span> </a>(Andy).</p>
-      <p class="title"style="color:white">this website still under management, we still working on it.</p>
-    </header>
+      <p class="title"style="color:white">this website still under management, I am still working on it.</p>
+   
     <main>
       <button id="cart-btn" type="button" class="btn">
         <span id="show-hide-cart">Show</span> Cart
       </button>
+
+
+
       <div id="cart-container">
         <button class="btn" id="clear-cart-btn">Clear Cart</button>
+
+         
+        
+
         <div id="products-container">
             
         </div>
 
-        <form action="/post" method="post">
        <br>
        <br>
        <hr style="height:5px;
        border:10px solid black; margin:5px;">
-        <p>Total number of items: <span name="total_items"id="total-items">0</span></p>
-        <p name="subtotal">Subtotal: <span  id="subtotal">$0</span></p>
-        <p name="taxes">Taxes: <span  id="taxes">$0</span></p>
-        <p name="total">Total: <span  id="total">$0</span></p>
+        <label for="total_items"><p>Total number of items: <span name="total_items"id="total-items">0</span></p></label>
+        <p name="subtotal">Total: <span  id="subtotal">$0</span></p>
+        <!-- <p name="taxes">Taxes: <span  id="taxes">$0</span></p> -->
+        <!-- <p name="total">Total: <span  id="total">$0</span></p> -->
+        <br><br>
+        <hr>
+       
+        <div id="form-element">
+          <form class="checkout-form">
+        
+
+        <label for="first_name">First-Name:<input type="text" id="first_name" name="first_name"></label>
+        <label for="last_name">Last-Name:<input type="text" id="last_name" name="last_name"></label>
+        <label for="Address">Address:<input type="text" id="address"name="address"></label>
+        <label for="phone">Phone-Number:<input type="number" id="phone" name="phone"></label>
         <br>
-        <br>
-        <input id="submit" type="submit" value="checkout">
-    </form>
+        <label for="text-area">Please send me a message or <br>comment here:<textarea cols="25" rows="15" placeholder="please commment me here, thanks you!"></textarea></label>
+      <br>
+      <br>
       </div>
+        <br>
+        <button id="submit" type="submit">submit</button>
+         </form>
+      </div>
+
+      
       <div id="dessert-card-container"></div>
     </main>
     <script src="./script.js"></script>

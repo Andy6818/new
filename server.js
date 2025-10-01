@@ -1,23 +1,26 @@
 const express = require("express");
-const mongoose = require("mongoose");
 
+const mongoose = require("mongoose");
+const bodyParser = require('body-parser');
 const path =require("path");
 
  const port = 3333;
 
  const app = express();
 
+
+
  app.listen(3333,()=>
  {
     console.log("you have connected to localhost:3333");
  }
-)
+);
 
 
 
-app.use(express.static(__dirname));
+
  
-app.use(express.urlencoded({extended:true}));
+app.use(express.static(__dirname));
 
 
 app.get("/",(req,res)=>{
@@ -25,6 +28,9 @@ app.get("/",(req,res)=>{
    res.sendFile(path.join(__dirname,"index.html"))
    console.log("you have connected you browser")
 })
+
+
+
 
 
 mongoose.connect("mongodb://127.0.0.1:27017/student")
@@ -39,26 +45,95 @@ db.once("open",()=> {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const userSchema = new mongoose.Schema({
-    first_name:String,
-    last_name:String,
-    address:String,
+
+   products: [{
+name: {
+    type: String,
+
+    
+  },
+  price: {
+    type: Number,
+
    
-})
+  },
+  description: {
+    type: String,
+    
+  }  }],
+
+  first_name:String,
+
+           last_name:String,
+           address:String,
+
+           phone:Number,
+
+  orderDate: { type: Date, default: Date.now },
+});
 
 
-app.post("/post", async (req,res)=>{
 
-   const{
-      first_name,
-      last_name,
-      address,
+app.post("/submit", async (req,res)=>{
+
+   const {
+   
+     
+      total_items,
+      subtotal,
+      taxes,
+      total,
+     
+      items,
+      products,
+   
+      id,
+      name,
+      price,
+      description,
+   
+           first_name,
+           last_name,
+           address,
+           phone,
+    
    }=req.body
 
+
+
    const user = new Users ({
+        total_items,
+      subtotal,
+      taxes,
+      total,
+      items,
+      products,
+      id,
+      name,
+      price,
+      description,
+
+   
       first_name,
-      last_name,
-      address,
+           last_name,
+           address,
+           phone,
    })
 
    await user.save()
