@@ -131,6 +131,8 @@ body {
 img.picture {
     width:300px;
     height:400px;
+    box-shadow: 10px 5px 5px rgb(14, 5, 5);
+    margin-bottom: 5px;
 
 
 }
@@ -184,7 +186,7 @@ p.letter {
 }
 
 #span-letter{
-  margin-top:30px;
+  margin-top:25px;
   float:right;
 }
 
@@ -193,6 +195,7 @@ display:block;
 /* flex-direction: column; */
 text-align: center;
 justify-self: center;
+
  
   
   
@@ -202,6 +205,10 @@ justify-self: center;
 input {
   border:2px solid black;
   border-radius:3px;
+  width:80%;
+  margin-left:auto;
+  margin-right:auto;
+  border-radius: 5px;
 }
 
 #form-element {
@@ -216,6 +223,6 @@ textarea{
   position:relative;
   flex-wrap: wrap;
   border: 2px solid black;
-  left:15px;
+  left:13px;
   
 }

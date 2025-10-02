@@ -286,6 +286,7 @@ products.forEach(
       <div class="dessert-card">
         <label for="name"><h2 name="name">${name}</h2></label>
         <img class="picture" src="${image}">
+        <br>
         <label for="price"><p class="dessert-price"  name="price">$${price} (6 pack)</p></label>
         <p class="product-category">description: ${description}</p>
        
