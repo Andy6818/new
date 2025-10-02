@@ -148,6 +148,8 @@ p.letter {
     margin:10px;
     background-color: rgb(240, 173, 73);
     border-radius: 6px;
+    width:100px;
+    margin-bottom: 35px;
     
 }
 #submit:hover {

@@ -72,7 +72,7 @@ app.post("/submit",async (req,res)=>{
 
    console.log(user)
 
-   res.send("thanks you for shoopping in our website, we will send you as soon as possible ")
+   res.send("thanks you for shoopping in our website, we will send your delivery as soon as possible ")
 
 
 })
