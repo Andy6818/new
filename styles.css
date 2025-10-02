@@ -22,6 +22,7 @@
 body {
   background-color: var(--dark-grey);
   font-family: Arial, Helvetica, sans-serif;
+  padding:3px;
 }
 
 .title {
@@ -222,7 +223,8 @@ input {
   margin-left:auto;
   margin-right:auto;
   border-radius: 5px;
-  height:35px
+  height:35px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
 #form-element {
@@ -237,6 +239,8 @@ textarea{
   position:relative;
   flex-wrap: wrap;
   border: 2px solid black;
-  left:13px;
+  left:10px;
+   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+   padding:5px;
   
 }
