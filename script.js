@@ -331,6 +331,9 @@ class ShoppingCart {
         </p>
         <img  width=45px height=55px src="${image}">
         <p name="price">$${price} (6 pack)</p>
+        <br>
+        <hr>
+        <br>
       </div>
       `; }
   

@@ -42,7 +42,7 @@
        <br>
        <br>
        <hr style="height:5px;
-       border:10px solid black; margin:5px;">
+       border:10px solid black; margin:5px; margin-left:auto; margin-right: auto;">
         <label for="total_items"><p>Total number of items: <span name="total_items"id="total-items">0</span></p></label>
         <p name="subtotal">Total: <span  id="subtotal">$0</span></p>
         <!-- <p name="taxes">Taxes: <span  id="taxes">$0</span></p> -->
@@ -51,7 +51,7 @@
         <hr>
        
         <div id="form-element">
-          <form class="checkout-form">
+          <form action="/submit" method="post">
         
          <br>
         <label for="first_name">First-Name:</label><input type="text" id="first_name" name="first_name">
@@ -63,7 +63,9 @@
         <label for="phone">Phone-Number:</label>
         <input type="number" id="phone" name="phone">
         <br>
-        <label for="text-area">if you have any question, Please send me a message or <br>comment here:<textarea cols="25" rows="15" placeholder="please commment me here, thanks you!"></textarea></label>
+        <label for="delivery">Select delivery Day<br>(No-Sunday)<input type="date"></label>
+        <br>
+        <label for="text-area">if you have any question, Please send me a message or <br>comment here:<textarea name="textarea" cols="25" rows="15" placeholder="please commment me here, thanks you!"></textarea></label>
       <br>
       <br>
       </div>

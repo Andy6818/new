@@ -18,7 +18,7 @@ const path =require("path");
 
 
 
-
+app.use(express.urlencoded({extended:true}))
  
 app.use(express.static(__dirname));
 
@@ -46,105 +46,52 @@ db.once("open",()=> {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const userSchema = new mongoose.Schema({
+   first_name:String,
+   last_name:String,
+   address:String,
+   phone:Number,
+   textarea:String,
+   delivery:String,
+   orderDate: { type: Date, default: Date.now },
+})
 
-   products: [{
-name: {
-    type: String,
-
-    
-  },
-  price: {
-    type: Number,
-
-   
-  },
-  description: {
-    type: String,
-    
-  }  }],
-
-  first_name:String,
-
-           last_name:String,
-           address:String,
-
-           phone:Number,
-
-  orderDate: { type: Date, default: Date.now },
-});
-
-
-
-app.post("/submit", async (req,res)=>{
-
-   const {
-   
-     
-      total_items,
-      subtotal,
-      taxes,
-      total,
-     
-      items,
-      products,
-   
-      id,
-      name,
-      price,
-      description,
-   
-           first_name,
-           last_name,
-           address,
-           phone,
-    
-   }=req.body
-
-
+app.post("/submit",async (req,res)=>{
+   const {first_name, last_name, address, phone, textarea, delivery}= req.body
 
    const user = new Users ({
-        total_items,
-      subtotal,
-      taxes,
-      total,
-      items,
-      products,
-      id,
-      name,
-      price,
-      description,
-
-   
       first_name,
-           last_name,
-           address,
-           phone,
+      last_name,
+      address,
+      phone,
+      textarea,
+      delivery
    })
 
    await user.save()
 
    console.log(user)
 
-   res.sendFile(path.join(__dirname,"index.html"))
+   res.send("thanks you for shoopping in our website, we will send you as soon as possible ")
+
+
 })
 
 
-const Users = mongoose.model("data", userSchema)
+const Users = mongoose.model("data", userSchema);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
