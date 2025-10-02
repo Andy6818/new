@@ -174,8 +174,8 @@ p.letter {
   width:80px;
   height:80px;
   border-radius: 50%;
-  margin-right:3px;
-  top:20px;
+  margin-right:7px;
+  top:10px;
 
 }
 
@@ -195,7 +195,7 @@ p.letter {
 }
 
 #span-letter::first-letter{
-  font-size: 55px;
+  font-size: 45px;
 }
 
 
