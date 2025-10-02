@@ -176,6 +176,7 @@ p.letter {
   border-radius: 50%;
   margin-right:7px;
   top:10px;
+  border:2px double yellow;
 
 }
 
@@ -219,6 +220,7 @@ input {
   margin-left:auto;
   margin-right:auto;
   border-radius: 5px;
+  height:35px
 }
 
 #form-element {

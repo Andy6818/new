@@ -143,7 +143,7 @@ const products = [
 
   {
     id: 16,
-    name: "usb cable for samsung item:018",
+    name: "usb cable for samsung item:019",
     image: "image/126.jpg",
     price: 10.50,
    description: "wholesale price $1.75",
@@ -152,7 +152,7 @@ const products = [
 
   {
     id: 17,
-    name: "usb cable for iphone item:019",
+    name: "usb cable for iphone item:020",
     image: "image/131.jpg",
     price: 16.5,
    description: "wholesale price $2.75",
@@ -160,7 +160,7 @@ const products = [
 
   {
     id: 18,
-    name: "type-c to iphone item:020",
+    name: "type-c to iphone item:021",
     image: "image/145.jpg",
     price: 16.5,
    description: "wholesale price $2.75",
@@ -169,109 +169,109 @@ const products = [
 
   {
     id: 19,
-    name: "Lemon Cupcakes (4 Pack) item:021",
+    name: "powerbank for phone item:022",
     image: "image/151.jpg",
-    price: 12.99,
-   description: "wholesale price $1.75",
+    price: 75,
+   description: "wholesale price $12",
   
   },
 
   {
     id: 20,
-    name: "Lemon Cupcakes (4 Pack) item:022",
+    name: "phone holder item:023",
     image: "image/305.jpg",
-    price: 12.99,
-  description: "wholesale price $1.75",
+    price: 25.5,
+  description: "wholesale price $4.25",
 
   },
 
   {
     id: 21,
-    name: "Lemon Cupcakes (4 Pack) item:023",
+    name: "2-in-1 charger item:024",
     image: "image/404.jpg",
-    price: 12.99,
-   description: "wholesale price $1.75",
+    price: 22.5,
+   description: "wholesale price $3.75",
 
   },
 
   {
     id: 22,
-    name: "Lemon Cupcakes (4 Pack) item:025",
+    name: "type-c to iphone item:025",
     image: "image/421.jpg",
-    price: 12.99,
-   description: "wholesale price $1.75",
+    price: 13.5,
+   description: "wholesale price $2.25",
 
   },
 
   {
     id: 23,
-    name: "Lemon Cupcakes (4 Pack) item:026",
+    name: "2-in-1 charger item:026",
     image: "image/422.jpg",
-    price: 12.99,
-   description: "wholesale price $1.75",
+    price: 22.5,
+   description: "wholesale price $3.75",
  
   },
 
   {
     id: 24,
-    name: "Lemon Cupcakes (4 Pack) item:027",
+    name: "type-c to iphone item:027",
     image: "image/436.jpg",
-    price: 12.99,
+    price: 10.5,
    description: "wholesale price $1.75",
  
   },
 
   {
     id: 25,
-    name: "Lemon Cupcakes (4 Pack)item:028",
+    name: "type-c to iphone item:28",
     image: "image/505.jpg",
-    price: 12.99,
-   description: "Cupcake",
+    price: 12,
+   description: "wholesale price $2",
 
   },
 
   {
     id: 26,
-    name: "Lemon Cupcakes (4 Pack) item:029",
+    name: "headphone for ipad/samsung item:029",
     image: "image/524.jpg",
-    price: 12.99,
-   description: "Cupcake",
+    price: 10.5,
+   description: "wholesale price $1.75",
 
   },
 
   {
     id: 27,
-    name: "Lemon Cupcakes (4 Pack) item:030",
+    name: "car holder item:030",
     image: "image/538.jpg",
-    price: 12.99,
-   description: "Cupcake",
+    price: 25.5,
+   description: "wholesale price $4.25",
 
   },
 
   {
     id: 28,
-    name: "Lemon Cupcakes (4 Pack) item:031",
+    name: "powerbank for phone item:031",
     image: "image/551.jpg",
-    price: 12.99,
-   description: "Cupcake",
+    price: 69,
+   description: "wholesale price $11.5",
 
   },
 
   {
     id: 29,
-    name: "Lemon Cupcakes (4 Pack) item:032",
+    name: "headphone for samsung/iphone item:032",
     image: "image/607.jpg",
-    price: 12.99,
-   description: "Cupcake",
+    price: 16.5,
+   description: "wholesale price $2.75",
 
   },
 
   {
     id: 30,
-    name: "Lemon Cupcakes (4 Pack) item:035",
-    image: "image/608.jpg",
-    price: 12.99,
-   description: "Cupcake",
+    name: "headphone for iphone/samsung item:035",
+    image: "image/609.jpg",
+    price: 18,
+   description: "wholesale price $3.00",
 
   },
 
