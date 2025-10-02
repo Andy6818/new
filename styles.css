@@ -21,6 +21,7 @@
 
 body {
   background-color: var(--dark-grey);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .title {
@@ -29,7 +30,7 @@ body {
   color: var(--light-grey);
   flex-wrap: wrap;
   text-align: center;
-  margin: 25px 0;
+  
 }
 
 #dessert-card-container {
@@ -159,16 +160,17 @@ p.letter {
 #header {
   position:relative;
   width:250px;
-  height:150px;
+  height:250px;
   margin-right:65px;
-  top:45px;}
+  /* border:1px solid white; */
+  top:15px;}
 
 
 #author {
   position:relative;
   left:15px;
-  width:100px;
-  height:100px;
+  width:80px;
+  height:80px;
   border-radius: 50%;
 
 }
@@ -176,19 +178,19 @@ p.letter {
 .author{
 
   color:white;
-  top:25px;
-  left:5px;
+  top:15px;
+  left:3px;
   
 }
 
 #span-letter{
-  margin-top:50px;
+  margin-top:30px;
   float:right;
 }
 
 label,input {
-display: block;
-flex-direction: column;
+display:block;
+/* flex-direction: column; */
 text-align: center;
 justify-self: center;
  
@@ -211,9 +213,9 @@ input {
 }
 
 textarea{
-  display:flex;
+  position:relative;
   flex-wrap: wrap;
   border: 2px solid black;
-  left:auto;
-  right:auto;
+  left:15px;
+  
 }
