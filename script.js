@@ -8,7 +8,7 @@ const cartSubTotal = document.getElementById("subtotal");
 const cartTaxes = document.getElementById("taxes");
 const cartTotal = document.getElementById("total");
 const showHideCartSpan = document.getElementById("show-hide-cart");
-const checkoutform = document.querySelector(".checkout-form")
+
 
 let isCartShowing = false;
 
@@ -274,34 +274,93 @@ const products = [
    description: "wholesale price $3.00",
 
   },
-
+  
  
 ];
 
 
 
+    
+
+
+// productcontainerform?.addEventListener("submit", async (event) =>{
+//           event.preventDefault()
+
+//     const data = new FormData(productcontainerform);
+
+//    const proData = Object.fromEntries(data)
+    
+    
+//    console.log(proData)
+
+
+// })
+ 
+
+
+
+
+  
+
+
+
+
+
+
+const formsubmit = document.querySelector(".form-submit")
+
+formsubmit?.addEventListener("submit", async (event) =>{
+          event.preventDefault()
+
+    const data = new FormData(formsubmit);
+
+   const proData = Object.fromEntries(data);
+
+
+
+    
+   const totaldata = {
+    ...proData,
+
+    productcontainerform:products,   };
+
+   
+  
+    console.log(totaldata);
+
+
+   })
+
+  
 products.forEach(
   ({ name, id, image,price, description,}) => {
     dessertCards.innerHTML += `
+      
+
+  
       <div class="dessert-card">
-        <label for="name"><h2 name="name">${name}</h2></label>
+      
+        <label for="name"><input type="hidden" value="${name}" name="name"></input></label>
         <img class="picture" src="${image}">
         <br>
-        <label for="price"><p class="dessert-price"  name="price">$${price} (6 pack)</p></label>
-        <p class="product-category">description: ${description}</p>
+        <label for="price"><input type="hidden" class="dessert-price"  name="price" value="$${price}"> (6 pack)</input></label>
+        <input type="hidden" class="product-category">description: ${description}</input>
        
         
         <button 
           id="${id}" 
-          class="btn add-to-cart-btn">Add to cart
+          class="btn add-to-cart-btn" type="submit" >Add to cart
         </button>
+    
       </div>
+    
     `;
   }
 );
 
 
-class ShoppingCart {
+
+class ShoppingCart                                                     {
   constructor() {
     this.items = [];
     this.total = 0;
@@ -316,7 +375,7 @@ class ShoppingCart {
     const totalCountPerProduct = {};
     this.items.forEach((dessert) => {
       totalCountPerProduct[dessert.id] = (totalCountPerProduct[dessert.id] || 0) + 1;
-    })
+})
 
     const currentProductCount = totalCountPerProduct[product.id];
     const currentProductCountSpan = document.getElementById(`product-count-for-id${id}`);
@@ -324,19 +383,41 @@ class ShoppingCart {
     currentProductCount > 1 
       ? currentProductCountSpan.textContent = `${currentProductCount}x`
       : productsContainer.innerHTML += `
-    
-      <div name="items" id="dessert${id}" class="product">  
-<p class="letter">
-          <span  class="product-count" name="id" id="product-count-for-id${id}"></span>${name}
+
+          
+      <div  id="dessert${id}" class="product ">  
+       <p type="hidden" class="letter" name="name">
+          <span  class="product-count" id="product-count-for-id${id}"></span>${name}"
         </p>
         <img  width=45px height=55px src="${image}">
-        <p name="price">$${price} (6 pack)</p>
-        <br>
+        <p type="hidden" id="price" name="price">$${price} (6 pack)</p>
+       
         <hr>
         <br>
+      
       </div>
-      `; }
+ 
+     
+      ` }
+
+      
   
+   
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
 
   getCounts() {
     return this.items.length;
@@ -358,8 +439,8 @@ class ShoppingCart {
       productsContainer.innerHTML = "";
       totalNumberOfItems.textContent = 0;
       cartSubTotal.textContent = 0;
-      cartTaxes.textContent = 0;
-      cartTotal.textContent = 0;
+      // cartTaxes.textContent = 0;
+      // cartTotal.textContent = 0;
     }
   }
 
@@ -372,13 +453,14 @@ class ShoppingCart {
     const tax = this.calculateTaxes(subTotal);
     this.total = subTotal + tax;
     cartSubTotal.textContent = `$${subTotal.toFixed(2)}`;
-    cartTaxes.textContent = `$${tax.toFixed(2)}`;
-    cartTotal.textContent = `$${this.total.toFixed(2)}`;
+    // cartTaxes.textContent = `$${tax.toFixed(2)}`;
+    // cartTotal.textContent = `$${this.total.toFixed(2)}`;
     return this.total;
   }
 };
 
 const cart = new ShoppingCart();
+
 const addToCartBtns = document.getElementsByClassName("add-to-cart-btn");
 
 [...addToCartBtns].forEach(
@@ -386,7 +468,7 @@ const addToCartBtns = document.getElementsByClassName("add-to-cart-btn");
     btn.addEventListener("click", (event) => {
       cart.addItem(Number(event.target.id), products);
       totalNumberOfItems.textContent = cart.getCounts();
-      cart.calculateTotal();
+       cart.calculateTotal();
     })
   }
 );
@@ -401,3 +483,4 @@ cartBtn.addEventListener("click", () => {
 clearCartBtn.addEventListener("click", cart.clearCart.bind(cart));
 
 
+cart.addeventlistener

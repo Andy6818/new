@@ -100,6 +100,7 @@ body {
 
 .product {
   margin: 25px 0;
+  
 }
 
 .product-count {
@@ -254,4 +255,28 @@ hr {
 
 h1{
   text-transform: uppercase;
+}
+
+#author {
+
+
+
+   animation-duration: 12s;
+ 
+    animation-name:author;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+     object-fit: cover;
+
+  
+ 
+
+}
+
+@keyframes author {
+
+    100% {
+ transform: rotate(360deg);
+    
+   }
 }

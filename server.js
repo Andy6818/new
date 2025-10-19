@@ -9,14 +9,9 @@ const path =require("path");
  const app = express();
 
 
-
- app.listen(3333,()=>
- {
-    console.log("you have connected to localhost:3333");
- }
-);
-
-
+app.listen("3333", ()=>{
+   console.log(" you have connected to localhost:3333")
+})
 
 app.use(express.urlencoded({extended:true}))
  
@@ -47,17 +42,41 @@ db.once("open",()=> {
 
 
 const userSchema = new mongoose.Schema({
+  
+   
    first_name:String,
    last_name:String,
    address:String,
    phone:Number,
    textarea:String,
    delivery:String,
-   orderDate: { type: Date, default: Date.now },
-})
 
-app.post("/submit",async (req,res)=>{
-   const {first_name, last_name, address, phone, textarea, delivery}= req.body
+   "name":{type: [String], required: true},
+   "price":{type: [Number], required: true},
+   "total_items":{type:[String], required:true},
+   
+
+
+
+ subtotal:String,
+
+  orderDate: { type: Date, default: Date.now },
+ })
+
+app.post('/api/submit-form',async (req,res)=>{
+   const {
+      first_name, 
+      last_name, 
+      address, 
+      phone, 
+      textarea, 
+      delivery,
+      name,
+      price,
+      total_items,
+      products,
+ 
+   }= req.body
 
    const user = new Users ({
       first_name,
@@ -65,17 +84,29 @@ app.post("/submit",async (req,res)=>{
       address,
       phone,
       textarea,
-      delivery
-   })
+      delivery,
+      name,
+      price,
+      total_items ,
+   products,
+    
 
-   await user.save()
-
-   console.log(user)
-
-   res.send("thanks you for shoopping in our website, we will send your delivery as soon as possible ")
+  
 
 
 })
+               
+   await user.save()
+ 
+   console.log(user)
+
+   res.send("thanks you for shoopping in our website, we will send your delivery as soon as possible ")
+})
+
+ 
+
+
+
 
 
 const Users = mongoose.model("data", userSchema);

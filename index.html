@@ -8,6 +8,7 @@
 </head>
 
    <body> 
+          
     <header> 
       <div id="header">
      <p class="author" ><img src="image/6818.jpg" id="author"><span id="span-letter">Author: Andy Chen
@@ -34,24 +35,29 @@
 
          
         
+        <form class="form-submit">
 
-        <div id="products-container">
+        <div id="products-container" class="products-container-form">
             
         </div>
-
+       
        <br>
        <br>
        <hr style="height:5px;
        border:10px solid black; margin:5px; margin-left:auto; margin-right: auto;">
-        <label for="total_items"><p>Total number of items: <span name="total_items"id="total-items">0</span></p></label>
-        <p name="subtotal">Total: <span  id="subtotal">$0</span></p>
-        <!-- <p name="taxes">Taxes: <span  id="taxes">$0</span></p> -->
-        <!-- <p name="total">Total: <span  id="total">$0</span></p> -->
+     
+       <label for="total_items">Total number of items:<input  name="total_items" type="hidden" id="total_items" ><span id="total-items"> 0</span></input></label>
+        <label for="subtotal">Total:<input name="subtotal" type="hidden"><span  id="subtotal"> $0</span></input></label>
+   <!-- <p name="taxes">Taxes: <span  id="taxes">$0</span></p>
+     <p name="total">Total: <span  id="total">$0</span></p> -->
         <br><br>
         <hr>
-       
+
+
+
+  
         <div id="form-element">
-          <form action="/submit" method="post">
+        
         
          <br>
         <label for="first_name">First-Name:</label><input type="text" id="first_name" name="first_name">
@@ -69,14 +75,18 @@
       <br>
       <br>
       </div>
-        <br>
-        <button id="submit" type="submit">submit</button>
-         </form>
-      </div>
 
+      <button  type="submit"  id="submit">submit</button>
+      </div>
+ 
       
       <div id="dessert-card-container"></div>
+      
     </main>
+   
+</form>
+    
+    
     <script src="./script.js"></script>
     <script src="./server.js"></script>
   </body>
