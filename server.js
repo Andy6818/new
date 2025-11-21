@@ -4,12 +4,14 @@ const mongoose = require("mongoose");
 const bodyParser = require('body-parser');
 const path =require("path");
 
- const port = 3333;
+ const port = 3355;
 
  const app = express();
 
+ app.use(express.json());
 
-app.listen("3333", ()=>{
+
+app.listen("3355", ()=>{
    console.log(" you have connected to localhost:3333")
 })
 
@@ -43,52 +45,47 @@ db.once("open",()=> {
 
 const userSchema = new mongoose.Schema({
   
+  userInfo: {
+    first_name: String,
+    last_name: String,
+    address: String,
+    delivery:String,
+    phone:Number,
+    textarea:String
+  },
+ 
+  cartItems: [
+    {
+      
    
-   first_name:String,
-   last_name:String,
-   address:String,
-   phone:Number,
-   textarea:String,
-   delivery:String,
-
-   "name":{type: [String], required: true},
-   "price":{type: [Number], required: true},
-   "total_items":{type:[String], required:true},
-   
-
-
-
- subtotal:String,
-
-  orderDate: { type: Date, default: Date.now },
+      items:[{id: Number,
+      name: String,
+      image: String,
+      price: Number,
+      description:String,}],
+      total: Number
+      
+    }
+  ],
+  createdAt: { type: Date, default: Date.now, }
  })
 
-app.post('/api/submit-form',async (req,res)=>{
+app.post("/api/checkout",async (req,res)=>{
    const {
-      first_name, 
-      last_name, 
-      address, 
-      phone, 
-      textarea, 
-      delivery,
-      name,
-      price,
-      total_items,
-      products,
+        userInfo,
+      
+        cartItems
  
    }= req.body
 
+//    console.log("user:", userInfo)
+// console.log("cart:", cartItems)
+
+
    const user = new Users ({
-      first_name,
-      last_name,
-      address,
-      phone,
-      textarea,
-      delivery,
-      name,
-      price,
-      total_items ,
-   products,
+      userInfo,
+     
+    cartItems
     
 
   
@@ -110,6 +107,21 @@ app.post('/api/submit-form',async (req,res)=>{
 
 
 const Users = mongoose.model("data", userSchema);
+
+
+app.post("/api/checkout", async (req, res) => {
+  try {
+    const checkout = new Users(req.body); // contains both userInfo + cartItems
+    await checkout.save();
+
+    res.json({ message: "Checkout saved", data: checkout });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+
+
 
 
 

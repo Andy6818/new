@@ -10,6 +10,8 @@ const cartTotal = document.getElementById("total");
 const showHideCartSpan = document.getElementById("show-hide-cart");
 
 
+
+
 let isCartShowing = false;
 
 
@@ -280,64 +282,17 @@ const products = [
 
 
 
-    
 
 
-// productcontainerform?.addEventListener("submit", async (event) =>{
-//           event.preventDefault()
-
-//     const data = new FormData(productcontainerform);
-
-//    const proData = Object.fromEntries(data)
-    
-    
-//    console.log(proData)
 
 
-// })
+
+
  
-
-
-
-
-  
-
-
-
-
-
-
-const formsubmit = document.querySelector(".form-submit")
-
-formsubmit?.addEventListener("submit", async (event) =>{
-          event.preventDefault()
-
-    const data = new FormData(formsubmit);
-
-   const proData = Object.fromEntries(data);
-
-
-
-    
-   const totaldata = {
-    ...proData,
-
-    productcontainerform:products,   };
-
-   
-  
-    console.log(totaldata);
-
-
-   })
-
-  
 products.forEach(
   ({ name, id, image,price, description,}) => {
-    dessertCards.innerHTML += `
+    dessertCards.innerHTML +=  `
       
-
-  
       <div class="dessert-card">
       
         <label for="name"><input type="hidden" value="${name}" name="name"></input></label>
@@ -354,17 +309,18 @@ products.forEach(
     
       </div>
     
-    `;
-  }
-);
+      
+    `
+  });
 
 
 
-class ShoppingCart                                                     {
+
+class ShoppingCart   {
   constructor() {
     this.items = [];
     this.total = 0;
-    this.taxRate = 8.25;
+    // this.taxRate = 8.25;
   }
 
   addItem(id, products) {
@@ -384,7 +340,6 @@ class ShoppingCart                                                     {
       ? currentProductCountSpan.textContent = `${currentProductCount}x`
       : productsContainer.innerHTML += `
 
-          
       <div  id="dessert${id}" class="product ">  
        <p type="hidden" class="letter" name="name">
           <span  class="product-count" id="product-count-for-id${id}"></span>${name}"
@@ -396,31 +351,11 @@ class ShoppingCart                                                     {
         <br>
       
       </div>
- 
-     
       ` }
-
-      
-  
-   
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
 
 
   getCounts() {
-    return this.items.length;
+    return this.items.length ;
   }
 
   clearCart() {
@@ -450,14 +385,16 @@ class ShoppingCart                                                     {
 
   calculateTotal() {
     const subTotal = this.items.reduce((total, item) => total + item.price, 0);
-    const tax = this.calculateTaxes(subTotal);
-    this.total = subTotal + tax;
+    // const tax = this.calculateTaxes(subTotal);
+    this.total = subTotal; // tax
     cartSubTotal.textContent = `$${subTotal.toFixed(2)}`;
     // cartTaxes.textContent = `$${tax.toFixed(2)}`;
     // cartTotal.textContent = `$${this.total.toFixed(2)}`;
     return this.total;
   }
 };
+
+
 
 const cart = new ShoppingCart();
 
@@ -483,4 +420,58 @@ cartBtn.addEventListener("click", () => {
 clearCartBtn.addEventListener("click", cart.clearCart.bind(cart));
 
 
-cart.addeventlistener
+
+    const now = new Date();
+    const timestamp = now.getTime(); // Returns milliseconds since epoch
+    console.log(timestamp);
+
+    console.log(now)
+
+function updateTime() {
+        const now = new Date();
+        document.getElementById("currentTime").textContent = now.toLocaleTimeString();
+    }
+
+    // Update the time every second
+    setInterval(updateTime, 1000);
+    updateTime(); // Initial call to display time immediately
+
+document.getElementById("data-submit").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  // Get form data
+  const formData = new FormData(e.target);
+  const formValues = Object.fromEntries(formData);
+
+  // Combine with cart
+  const payload = {
+    userInfo: formValues,
+   
+    cartItems: cart
+
+  };
+
+
+  console.log(payload)
+
+
+  const res = await fetch("/api/checkout",
+   { method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  });
+
+  document.write('<p>order detail:' + JSON.s(payload) + ' </form> </p>')
+})
+
+
+
+const timedate = document.getElementById("present-date")
+
+const el = new Date()
+
+const eltime = el.toDateString();
+
+timedate.innerHTML ='<p>'+ eltime + '</p>'
+
+
+ console.log(timedate)

@@ -9,17 +9,24 @@
 
    <body> 
           
-    <header> 
+     <header> 
       <div id="header">
-     <p class="author" ><img src="image/6818.jpg" id="author"><span id="span-letter">Author: Andy Chen
-       <br>Date: 09/30/2025 <br>Published: 2025</span></p>
-
-   </div>
+     <p class="author" ><img src="image/6818.jpg" id="author"><span id="span-letter">Author: <u>Andy Chen</u>
+       <br>Date: <span id="present-date">09/30/2025</span>
+       Time: <span id="currentTime"></span>
+      </p>
+     
+   </div> 
+   
+   
    <div class="title">
 <h1 class="title">welcome to wholesales phone accessories.</h1>
 <br>
       <p class="title"style="color:white">please call salesrepresentative Tel: <a href="tel:+17187376818"><span class="tel">718-737-6818</span> </a>(Andy), Wholesales Only.</p>      <p class="title"style="color:white">this website still under management, I am still working on it, sorry for any incovenience.</p>
+       <br>
+        
        </div>
+       
     </header>
       
    
@@ -35,8 +42,8 @@
 
          
         
-        <form class="form-submit">
-
+        
+     <form id="data-submit">
         <div id="products-container" class="products-container-form">
             
         </div>
@@ -46,16 +53,21 @@
        <hr style="height:5px;
        border:10px solid black; margin:5px; margin-left:auto; margin-right: auto;">
      
-       <label for="total_items">Total number of items:<input  name="total_items" type="hidden" id="total_items" ><span id="total-items"> 0</span></input></label>
-        <label for="subtotal">Total:<input name="subtotal" type="hidden"><span  id="subtotal"> $0</span></input></label>
+       <label for="total_items">Total number of items:<p  name="total_items" type="number" id="total_items" ><span id="total-items"> 0</span></p></label>
+
+
+        <label for="subtotal">Total:<p name="subtotal" type="number"><span  id="subtotal"> $0</span></p></label>
    <!-- <p name="taxes">Taxes: <span  id="taxes">$0</span></p>
      <p name="total">Total: <span  id="total">$0</span></p> -->
+    
         <br><br>
         <hr>
 
 
 
-  
+
+
+
         <div id="form-element">
         
         
@@ -76,15 +88,17 @@
       <br>
       </div>
 
-      <button  type="submit"  id="submit">submit</button>
+      <button  type="submit" id="submit">submit</button>
+      </form>
       </div>
  
       
+
       <div id="dessert-card-container"></div>
       
     </main>
    
-</form>
+
     
     
     <script src="./script.js"></script>
