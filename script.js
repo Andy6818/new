@@ -436,7 +436,7 @@ function updateTime() {
     setInterval(updateTime, 1000);
     updateTime(); // Initial call to display time immediately
 
-document.getElementById("data-submit").addEventListener("submit", async (e) => {
+document.getElementById("datasubmit").addEventListener("submit", async (e) => {
   e.preventDefault();
   // Get form data
   const formData = new FormData(e.target);
@@ -451,7 +451,10 @@ document.getElementById("data-submit").addEventListener("submit", async (e) => {
   };
 
 
+ 
+
   console.log(payload)
+
 
 
   const res = await fetch("/api/checkout",
@@ -460,7 +463,13 @@ document.getElementById("data-submit").addEventListener("submit", async (e) => {
     body: JSON.stringify(payload)
   });
 
-  document.write('<p>order detail:' + JSON.s(payload) + ' </form> </p>')
+
+
+document.write('<p style=" padding:5px; line-height: 1.5;margin-bottom: 1em;  margin-top: 1em;display:column; float:left; width=330px; font-size:65px"> you order have been submitted successful, we got your order, thanks you, we will send your order as you request for delivery date, thanks <br> <br> </p>'
+
+)
+  
+ 
 })
 
 

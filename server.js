@@ -28,9 +28,9 @@ app.get("/",(req,res)=>{
 
 
 
+mongoose.connect("mongodb+srv://andytst2005:B11cFuru9j0f47qt@cluster0.rqgds42.mongodb.net/orderData")
 
-
-mongoose.connect("mongodb://127.0.0.1:27017/student")
+// mongoose.connect("mongodb://127.0.0.1:27017/student")
 
 const db = mongoose.connection;
 
@@ -67,7 +67,7 @@ const userSchema = new mongoose.Schema({
       
     }
   ],
-  createdAt: { type: Date, default: Date.now, }
+  orderDate: { type: Date, default: Date.now}
  })
 
 app.post("/api/checkout",async (req,res)=>{
