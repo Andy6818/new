@@ -465,7 +465,7 @@ document.getElementById("datasubmit").addEventListener("submit", async (e) => {
 
 
 
-document.write('<p style=" padding:5px; line-height: 1.5;margin-bottom: 1em;  margin-top: 1em;display:column; float:left; width=330px; font-size:65px"> you order have been submitted successful, we got your order, thanks you, we will send your order as you request for delivery date, thanks <br> <br> </p>'
+document.write('<p style=" padding:5px; line-height: 1.5;margin-bottom: 1em;  margin-top: 1em;display:column; float:left; width=330px; font-size:35px"> you order have been submitted successful, we got your order, thanks you, we will send your order as you request for delivery date, thanks <br> <br> </p>'
 
 )
   
