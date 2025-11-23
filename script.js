@@ -436,41 +436,53 @@ function updateTime() {
     setInterval(updateTime, 1000);
     updateTime(); // Initial call to display time immediately
 
-document.getElementById("datasubmit").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  // Get form data
-  const formData = new FormData(e.target);
-  const formValues = Object.fromEntries(formData);
-
-  // Combine with cart
-  const payload = {
-    userInfo: formValues,
-   
-    cartItems: cart
-
-  };
 
 
- 
+    document.addEventListener("DOMContentLoaded", () => {
+    const cartDataInput = document.getElementById("cartDataInput");
+    const checkoutForm = document.getElementById("checkoutForm");
+    // const cartDetailsDiv = document.getElementById("cartDetails");
 
-  console.log(payload)
-
-
-
-  const res = await fetch("/api/checkout",
-   { method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload)
-  });
+    // Retrieve the cart data from localStorage
+    const cartDataString = localStorage.getItem("shoppingCartData");
+    let cartItems = cart;
+     console.log(cartItems)
 
 
+    if (cartDataString) {
+        cartItems = JSON.parse(cartDataString);
+        displayCartItems(cartItems);
+    } else {
+        // cartDetailsDiv.innerHTML = "<p>Your cart is empty.</p>";
+    }
 
-document.write('<p style=" padding:5px; line-height: 1.5;margin-bottom: 1em;  margin-top: 1em;display:column; float:left; width=330px; font-size:35px"> you order have been submitted successful, we got your order, thanks you, we will send your order as you request for delivery date, thanks <br> <br> </p>'
+    // Add an event listener to the form to handle submission
+    checkoutForm.addEventListener("submit", function(event) {
+        // Populate the hidden input field with the JSON string of the cart data
+        cartDataInput.value = JSON.stringify(cartItems);
+        
 
-)
+  //       const payload = {
+  //   userInfo: formValues,
+  //   cartItems: cartItems
+  // };
+
   
- 
-})
+        // The form will now submit all fields, including the hidden cart data, to the server
+        // If using fetch() for AJAX submission, you would preventDefault() here 
+        // and send the form data using the fetch API as shown previously.
+    });
+});
+   
+
+function displayCartItems(cartitems) {
+    let html = "<h4>Order Summary:</h4><ul>";
+    cartitems.forEach(cartitems => {
+        html += `<li>${cartitems.name} (Qty: ${cartitems.quantity}) - $${cartitems.price * cartitems.quantity}</li>`;
+    });
+    html += "</ul>";
+    document.getElementById("cartDetails").innerHTML = html;
+}
 
 
 
